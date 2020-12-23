@@ -1,6 +1,7 @@
 Contributing
 ============
 
+
 Thank you for considering contributing to Mastodon 🐘
 
 You can contribute in the following ways:
