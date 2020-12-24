@@ -149,6 +149,14 @@ class AccountsController < ApplicationController
   def params_slice(*keys)
     params.slice(*keys).permit(*keys)
   end
+  
+  def filtered_status_page
+    if user_signed_in?
+      filtered_statuses.paginate_by_id(PAGE_SIZE, params_slice(:max_id, :min_id, :since_id))
+    else
+      filtered_statuses.first(5)
+    end
+  end
 
   def restrict_fields_to
     if signed_request_account.present? || public_fetch_mode?
